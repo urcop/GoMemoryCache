@@ -56,7 +56,7 @@ func (db *Cache) Get(key interface{}) (result interface{}, ok bool) {
 	return val.value, true
 }
 
-func (c *Cache) Set(key string, v interface{}, ttl time.Duration) {
+func (c *Cache) Set(key string, v interface{}) {
 	t := time.Now().Add(c.ttl)
 	c.data.Store(key, &value{v, &t})
 }
